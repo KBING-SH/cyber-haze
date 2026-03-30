@@ -1,54 +1,54 @@
 import { useState, useEffect } from "react";
-import { Brain, Calculator, BookOpen, BarChart3, PieChart, ChevronRight } from "lucide-react";
+import { ImageIcon, Type, Lightbulb, ImagePlus, PenTool, ChevronRight } from "lucide-react";
 
 const sections = [
   {
-    icon: Brain,
-    title: "AI Math Learning Support",
-    subtitle: "Clearer explanations and step-by-step guidance",
+    icon: ImageIcon,
+    title: "Create Free Images with AI Online",
+    subtitle: "Turn text ideas into visuals online",
     paragraphs: [
-      "An AI math tool helps users work through math topics with clearer explanations and step-by-step guidance. By focusing on common areas such as algebra, geometry, calculus, and statistics, it supports learning in a more direct and practical way.",
-      "With this approach, users can connect each answer to the underlying method instead of only viewing the result. They can type a question or upload a screenshot or image to see how the problem is solved in practice.",
+      "To create free images with AI, you can start with a text idea and turn it into a new visual online. This gives you a simple way to explore image creation for different concepts, moods, and styles without relying on complex design tools.",
+      "By entering a clear description, you can guide the image result in a more direct way. It offers a practical way to turn words into visuals and explore new image ideas as you refine your prompt.",
     ],
     imageFirst: true,
   },
   {
-    icon: Calculator,
-    title: "Smart Solve AI Features",
-    subtitle: "Type or upload problems for clearer steps",
+    icon: Type,
+    title: "AI Image Creation from Text",
+    subtitle: "Describe what you want in text",
     paragraphs: [
-      "An AI math tool like Rita helps students work through math questions by typing or uploading problems from different topics. It gives answers with clearer steps, making it easier to follow the logic without leaving the study flow.",
-      "Using Rita feels like having steady support during homework or review. It supports learning by giving explanations that make each step easier to follow.",
+      "Creating free images with AI becomes more flexible when you describe what you want in text. This lets the tool generate visuals based on your idea, making the process more focused on image creation rather than manual editing.",
+      "Text-based image generation works well when you want to try different visual directions from the same idea. Small prompt changes can lead to different results, which makes the process useful for exploring variations.",
     ],
     imageFirst: false,
   },
   {
-    icon: BookOpen,
-    title: "Custom AI Math Problem Maker",
-    subtitle: "Generate practice questions for any topic",
+    icon: Lightbulb,
+    title: "AI Image Generator for Different Ideas",
+    subtitle: "Explore concepts as visuals",
     paragraphs: [
-      "An AI math tool can also support educators when preparing practice materials. By using an AI math problem maker, teachers can enter a topic or concept and receive practice questions that fit lesson goals and classroom review.",
-      "With this approach, instructors can prepare more varied exercises while keeping the work focused on the topic being taught. It adds useful support when building math practice for class.",
+      "An AI image generator helps you create free images with AI from simple written ideas. You describe a scene, object, or concept, and the tool turns that input into a visual, giving you a direct starting point for creative work.",
+      "This is useful when you want to explore new directions without building an image from scratch by hand. It offers a straightforward way to test concepts and see how different ideas look as images.",
     ],
     imageFirst: true,
   },
   {
-    icon: BarChart3,
-    title: "Statistics AI Calculator Features",
-    subtitle: "Step-by-step statistics guidance",
+    icon: ImagePlus,
+    title: "Reference Images for Better Direction",
+    subtitle: "Guide results with visual references",
     paragraphs: [
-      "An AI math tool like this also supports statistics questions with step-by-step guidance. It helps users follow the process behind the numbers, making statistics easier to study and review.",
-      "This works well for students who want to understand how an answer is formed instead of only seeing the final result. It gives extra support during study sessions and homework review.",
+      "Creating free images with AI can also involve using a reference image to guide the result. This adds visual direction to the generation process and can help shape the style, composition, or overall feel of the final image.",
+      "A reference image works best as supporting input rather than the main focus of the page. It gives the AI a clearer starting point while keeping image generation centered on the idea you want to create.",
     ],
     imageFirst: false,
   },
   {
-    icon: PieChart,
-    title: "Statistics Answers AI Tool",
-    subtitle: "Clearer solutions for statistics questions",
+    icon: PenTool,
+    title: "Writing Better AI Image Prompts",
+    subtitle: "Refine prompts for better results",
     paragraphs: [
-      "An AI math tool offers a direct way to work through statistics questions with clearer solutions. After entering a problem, this AI math tool analyzes it and returns answers in a way that is easier to follow.",
-      "With this approach, users can review the method step by step and build a steadier understanding of statistics. It serves as practical support for homework, review, and general study.",
+      "When you create free images with AI, the wording of your prompt can affect the final result. A clearer prompt gives the tool more direction, which can make the output closer to the image idea you have in mind.",
+      "You can adjust your wording to explore different versions of the same concept. This gives you a simple way to refine image generation while keeping the creative process focused on your original idea.",
     ],
     imageFirst: true,
   },
@@ -158,7 +158,7 @@ function UploadTooltip() {
       style={{ top: pos.top, left: pos.left, width: pos.width, height: pos.height }}
     >
       <div className="bg-primary text-primary-foreground px-4 py-2 rounded-lg shadow-lg text-sm font-medium animate-[bounce_1s_ease-in-out_3]">
-        👆 Upload your math problem here to get started
+        👆 Describe your image idea here to get started
       </div>
     </div>
   );

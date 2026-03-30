@@ -1,55 +1,55 @@
-import { Zap, Brain, BookOpen, BarChart3, Camera, Shield } from "lucide-react";
+import { Type, Palette, ImagePlus, Ratio, PenTool, Shield } from "lucide-react";
 
 const features = [
   {
-    icon: Zap,
-    title: "Step-by-Step Solutions",
-    desc: "Get detailed breakdowns for every math problem, helping you understand the method behind the answer — not just the result.",
+    icon: Type,
+    title: "Text to Image",
+    desc: "Describe your idea in words and let AI turn it into a visual. A direct way to create images from concepts.",
     accent: "from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(45,100%,60%)] to-[hsl(30,95%,55%)]",
-    stat: "∞",
-    statLabel: "Steps",
+    stat: "✨",
+    statLabel: "Create",
   },
   {
-    icon: Brain,
-    title: "Multiple Math Topics",
-    desc: "Covers algebra, geometry, calculus, statistics, and more — one tool for all your math learning needs.",
+    icon: Palette,
+    title: "Multiple Styles",
+    desc: "Explore different visual styles from the same prompt. One idea, many creative directions.",
     accent: "from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
     iconBg: "bg-gradient-to-br from-[hsl(240,74%,61%)] to-[hsl(280,65%,60%)]",
-    stat: "10+",
-    statLabel: "Topics",
+    stat: "8+",
+    statLabel: "Styles",
   },
   {
-    icon: Camera,
-    title: "Image Upload Support",
-    desc: "Upload screenshots or photos of math problems and get solutions instantly — no need to type complex equations.",
+    icon: ImagePlus,
+    title: "Reference Support",
+    desc: "Upload a reference image to guide style, composition, and overall feel of the result.",
     accent: "from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     iconBg: "bg-gradient-to-br from-[hsl(162,63%,50%)] to-[hsl(180,60%,45%)]",
     stat: "📷",
     statLabel: "Upload",
   },
   {
-    icon: BarChart3,
-    title: "Statistics Support",
-    desc: "Work through probability, distributions, and statistical analysis with clearer guidance and step-by-step explanations.",
+    icon: Ratio,
+    title: "Flexible Ratios",
+    desc: "Choose from multiple aspect ratios to match your content needs — social posts, banners, and more.",
     accent: "from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(340,75%,55%)] to-[hsl(300,60%,55%)]",
-    stat: "📊",
-    statLabel: "Stats",
+    stat: "10+",
+    statLabel: "Ratios",
   },
   {
-    icon: BookOpen,
-    title: "Problem Generator",
-    desc: "Educators can generate practice questions tailored to specific topics and skill levels for classroom use.",
+    icon: PenTool,
+    title: "Prompt Refinement",
+    desc: "Adjust your wording to explore variations. Small changes can lead to different visual results.",
     accent: "from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     iconBg: "bg-gradient-to-br from-[hsl(200,80%,55%)] to-[hsl(220,75%,55%)]",
     stat: "✏️",
-    statLabel: "Practice",
+    statLabel: "Refine",
   },
   {
     icon: Shield,
     title: "Privacy Focused",
-    desc: "We prioritize user privacy during problem solving. Uploaded questions are handled according to Rita's privacy policy.",
+    desc: "We prioritize user privacy during image generation. Uploaded images are handled according to Rita's privacy policy.",
     accent: "from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     iconBg: "bg-gradient-to-br from-[hsl(150,55%,45%)] to-[hsl(162,63%,50%)]",
     stat: "✓",
@@ -65,7 +65,7 @@ export function WhyChoose() {
           Why Choose Rita
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center mb-8 md:mb-14 max-w-xl mx-auto">
-          Powerful AI + clear explanations — making math learning accessible to everyone
+          Powerful AI + simple workflow — making image creation accessible to everyone
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">

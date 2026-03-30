@@ -3,73 +3,73 @@ import { useDraggableMarquee } from "@/hooks/use-draggable-marquee";
 
 const testimonials = [
   {
-    name: "Emily Carter",
-    role: "High School Student",
+    name: "Maria Gonzalez",
+    role: "Freelance Blogger",
     avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    content: "I've been using this AI math tool for a few weeks, and it has made difficult problems easier to follow. The step-by-step explanations help me understand ideas that used to feel confusing. It has become a useful part of my math homework routine.",
+    content: "Creating free images with AI has changed how I handle visuals for my blog. I can start with a short idea and get original images that fit my content direction well. It has become a useful way to build visuals without spending extra time on manual design work.",
     rating: "4.9/5",
   },
   {
-    name: "Rajesh Kumar",
-    role: "College Engineering Student",
+    name: "David Kim",
+    role: "Social Media Manager",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-    content: "This AI math tool is useful when I work through calculus and algebra problems. The detailed steps make it easier to follow the reasoning behind each solution, which matters for my coursework. It gives me solid study support when I need to review a problem carefully.",
+    content: "Creating free images with AI has been useful for my social media work. I can try different text ideas and generate visuals that match different post directions. It gives me a steady way to build image options when I need fresh content.",
     rating: "5.0/5",
   },
   {
-    name: "Sofia Martinez",
-    role: "Middle School Teacher",
+    name: "Aisha Patel",
+    role: "Small Business Owner",
     avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-    content: "As a teacher, I find this AI math tool useful for giving students clearer explanations and extra practice. It helps me prepare questions and reinforce lessons in a more focused way. Being able to upload problems and review solutions saves time during lesson planning.",
+    content: "Using free AI to create images helps me keep my marketing materials visually consistent. I can describe what I need and generate images that are closer to my ideas. The process feels clear and manageable even without a design background.",
     rating: "4.8/5",
   },
   {
-    name: "Liam O'Connor",
-    role: "University Student",
+    name: "Lars Jensen",
+    role: "Graphic Designer",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-    content: "Using this AI math tool has made statistics problems feel more manageable. The step-by-step guidance makes the concepts easier to follow and less overwhelming during exam review. It's a dependable study resource when I need extra support.",
+    content: "I've tried free AI image creation tools and found them useful for early concept exploration. Starting from text ideas helps me test visual directions before moving into more detailed design work. It has become a practical part of brainstorming.",
     rating: "4.9/5",
   },
   {
-    name: "Mei Lin",
-    role: "High School Math Tutor",
+    name: "Sophie Martin",
+    role: "Content Creator",
     avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
-    content: "This AI math tool works well as extra support during tutoring sessions. It gives clear solutions that I can review with my students, and the explanations make it easier for them to understand each step. It fits naturally into regular math practice.",
+    content: "Creating free images with AI has made content planning smoother for me. I can turn simple ideas into visuals and compare different directions before choosing one. It gives me more flexibility when I need images for new projects.",
     rating: "5.0/5",
   },
   {
-    name: "David Johnson",
-    role: "College Student",
+    name: "Kenji Tanaka",
+    role: "Marketing Specialist",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-    content: "I find this AI math tool useful for checking my work and reviewing different ways to solve a problem. Uploading an image of an equation is convenient, and the explanations make it easier to learn from mistakes instead of only checking the answer.",
+    content: "The option to create free images with AI fits well with my daily work. I can generate visuals from short descriptions and adjust the prompt when I want a different result. It gives me a useful way to explore image ideas without slowing down my workflow.",
+    rating: "4.9/5",
+  },
+  {
+    name: "Elena Petrova",
+    role: "Student",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+    content: "For school projects, creating free images with AI has been helpful. I can describe a concept and get visuals that make presentations feel more complete. It gives me another way to present ideas when I want something more visual than plain text.",
     rating: "4.8/5",
   },
   {
-    name: "Amina Hassan",
-    role: "STEM Professional",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-    content: "In my STEM work, I appreciate how this AI math tool handles topics like linear algebra and differential equations. The step-by-step solutions are clear and practical, which makes it useful when I need to revisit a concept or review a method.",
-    rating: "4.9/5",
-  },
-  {
-    name: "Carlos Diaz",
-    role: "High School Student",
+    name: "Michael O'Connor",
+    role: "Blogger",
     avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-    content: "This AI math tool has changed how I approach math problems. The explanations are straightforward and make it easier to understand the reasoning behind each step. It gives me useful support whenever I get stuck during homework.",
+    content: "I like using AI to create free images because it lets me turn written ideas into visuals quickly. It's especially useful when I want something original for a post and need to try more than one creative direction. The process feels direct and easy to work with.",
     rating: "5.0/5",
   },
   {
-    name: "Hana Lee",
-    role: "College Mathematics Major",
+    name: "Priya Singh",
+    role: "Digital Artist",
     avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-    content: "The AI math tool breaks down harder problems into clearer steps, which supports my learning. It helps me review different methods for solving equations and gives me a better grasp of the process. It has been useful during exam preparation.",
+    content: "Creating free images with AI has added a useful step to my creative process. I can begin with a concept, test different prompt wording, and see how the visual changes. It gives me more room to explore before I move into deeper editing work.",
     rating: "4.9/5",
   },
   {
-    name: "Michael Thompson",
-    role: "High School Student",
+    name: "Carlos Ramirez",
+    role: "Entrepreneur",
     avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop",
-    content: "I've tried several math tools, and this AI math tool stands out for its clear explanations and steady support. It helps me work through algebra and geometry problems in a way that feels easier to follow. Over time, it has helped me feel more confident in class.",
+    content: "I use free AI image creation tools to build visuals for my website and content plans. Starting from text ideas makes it easier to generate images that match different directions I want to test. It has been a practical option for creating visuals without extra complexity.",
     rating: "4.8/5",
   },
 ];
@@ -144,7 +144,7 @@ export function TestimonialsSection() {
           What Users Say
         </h2>
         <p className="text-sm md:text-base text-body-desc text-center max-w-lg mx-auto">
-          Sample feedback from users who tried Rita's AI math tool for learning and problem solving.
+          Sample feedback from users who tried Rita's AI image generator for creating free images.
         </p>
       </div>
 

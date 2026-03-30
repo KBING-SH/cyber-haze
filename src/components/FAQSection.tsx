@@ -4,36 +4,36 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    q: "What are AI math tools and how do they work?",
-    a: "AI math tools help users work through math problems by analyzing a typed or uploaded question and returning clearer answers with step-by-step guidance. They are often used for topics such as algebra, geometry, calculus, and statistics.",
+    q: "How can I create free images with AI online?",
+    a: "You can create free images with AI online by entering a text description and letting the tool generate a visual based on your idea. Some tools may also support a reference image as additional input.",
   },
   {
-    q: "What is an AI math tool best suited for solving various math problems?",
-    a: "An AI math tool like Rita is useful for working through different kinds of math questions by letting users type or upload problems and review answers with clearer explanations. This makes it a practical option for study, homework, and review.",
+    q: "Can I create free images with AI from text?",
+    a: "Yes, you can create free images with AI from text by describing the scene, object, or concept you want to generate. The tool uses that written input to create a new image.",
   },
   {
-    q: "Can AI math solvers provide step-by-step solutions?",
-    a: "Yes, AI math tools can provide step-by-step solutions. This kind of guidance helps users follow the method behind the answer instead of only seeing the final result.",
+    q: "What is a simple way to generate free images with AI?",
+    a: "A simple way to generate free images with AI is to start with a clear text prompt. This gives the tool direct input and helps guide the image result more effectively.",
   },
   {
-    q: "Is it possible for an AI math tool to solve problems from images?",
-    a: "Yes, AI math tools like Rita can support uploaded questions, including screenshots or images of math problems. This gives users another way to enter a question and review the solution.",
+    q: "Can I make free images with AI for different ideas?",
+    a: "Yes, you can make free images with AI for different ideas by changing the prompt wording and trying different concepts. This allows you to explore multiple visual directions from simple text input.",
   },
   {
-    q: "What is the purpose of an AI math problem generator?",
-    a: "An AI math problem generator helps educators prepare practice questions based on a topic or concept. This supports lesson planning and gives students more focused material for review.",
+    q: "Can a reference image help when creating free AI images?",
+    a: "Yes, a reference image can help guide the result when creating free AI images. It works as supporting input that helps shape the visual direction of the generated image.",
   },
   {
-    q: "Can AI math word problem generators create problems for different skill levels?",
-    a: "AI math problem generators can be used to create practice that fits different lesson goals and study levels. This makes them useful when teachers want more targeted review material.",
+    q: "How does free AI image generation work?",
+    a: "Free AI image generation works by taking text input, and in some cases a reference image, and turning that information into a new visual result. The wording of the prompt can influence how the image turns out.",
   },
   {
-    q: "How can students use AI math tools for learning and homework support?",
-    a: "Students can use AI math tools to type or upload questions and receive answers with clearer explanations. This helps them review each step more carefully during homework and study.",
+    q: "What should I enter to create free images with AI?",
+    a: "You can enter a text description of the image you want to create. A clearer prompt usually gives the tool better direction for generating the visual result.",
   },
   {
-    q: "Can AI math tools assist with probability and statistics problems?",
-    a: "Yes, AI math tools can assist with statistics problems by providing clearer solutions and step-by-step guidance. This makes statistics easier to review and understand during study sessions.",
+    q: "Why does prompt wording matter in AI image generation?",
+    a: "Prompt wording matters because it affects how the tool interprets your idea. Small wording changes can lead to different image results, which makes prompt writing part of the creative process.",
   },
 ];
 

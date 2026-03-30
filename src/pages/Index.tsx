@@ -113,10 +113,10 @@ const Index = () => {
               <div className="px-3 py-4 space-y-3">
                 <div className="text-center">
                   <h1 className="text-xl font-bold text-title leading-tight mb-1.5">
-                    AI Math Tool for Learning
+                    Create Free Images with AI
                   </h1>
                   <p className="text-muted-foreground text-xs leading-relaxed max-w-xs mx-auto">
-                    Type a math question or upload a screenshot — Rita AI gives step-by-step solutions for algebra, calculus, statistics, and more.
+                    Create free images with AI from text or image ideas. Turn words into visuals online with Rita's free AI image generator.
                   </p>
                 </div>
                 <div className="w-full aspect-[16/9] rounded-xl overflow-hidden">
@@ -130,10 +130,10 @@ const Index = () => {
           <div className="hidden lg:flex flex-col items-center justify-start pt-6 px-4 md:px-6 flex-1 overflow-hidden">
             <div className="text-center shrink-0 mb-3">
               <h1 className="text-3xl md:text-5xl font-bold text-title leading-tight mb-3 md:mb-4">
-                AI Math Tool for Learning and Problem Solving
+                Create Free Images with AI Online
               </h1>
               <p className="text-muted-foreground text-sm md:text-lg max-w-[900px] mx-auto leading-relaxed">
-                Type a math question or upload a screenshot — Rita AI gives step-by-step solutions for algebra, calculus, statistics, and more. Practical support for students, teachers, and professionals.
+                Create free images with AI from text or image ideas. Turn words into visuals online with Rita's free AI image generator.
               </p>
             </div>
             <div className={`flex-1 min-h-0 w-full px-4 flex items-center justify-center relative ${history.length > 0 ? "pb-4" : ""}`}>
