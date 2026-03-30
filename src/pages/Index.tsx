@@ -113,10 +113,10 @@ const Index = () => {
               <div className="px-3 py-4 space-y-3">
                 <div className="text-center">
                   <h1 className="text-xl font-bold text-title leading-tight mb-1.5">
-                    AI Math Tool for Learning
+                    Create Free Images with AI
                   </h1>
                   <p className="text-muted-foreground text-xs leading-relaxed max-w-xs mx-auto">
-                    Type a math question or upload a screenshot — Rita AI gives step-by-step solutions for algebra, calculus, statistics, and more.
+                    Create free images with AI from text or image ideas. Turn words into visuals online with Rita's free AI image generator.
                   </p>
                 </div>
                 <div className="w-full aspect-[16/9] rounded-xl overflow-hidden">
