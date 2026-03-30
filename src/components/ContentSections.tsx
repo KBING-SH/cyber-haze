@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { ImageIcon, Type, Lightbulb, ImagePlus, PenTool, ChevronRight } from "lucide-react";
+import sectionTextToImage from "@/assets/section-text-to-image.webp";
+import sectionAiText from "@/assets/section-ai-text.webp";
+import sectionIdeas from "@/assets/section-ideas.webp";
+import sectionReference from "@/assets/section-reference.webp";
+import sectionPrompts from "@/assets/section-prompts.webp";
 
 const sections = [
   {
     icon: ImageIcon,
     title: "Create Free Images with AI Online",
     subtitle: "Turn text ideas into visuals online",
+    image: sectionTextToImage,
     paragraphs: [
       "To create free images with AI, you can start with a text idea and turn it into a new visual online. This gives you a simple way to explore image creation for different concepts, moods, and styles without relying on complex design tools.",
       "By entering a clear description, you can guide the image result in a more direct way. It offers a practical way to turn words into visuals and explore new image ideas as you refine your prompt.",
@@ -16,6 +22,7 @@ const sections = [
     icon: Type,
     title: "AI Image Creation from Text",
     subtitle: "Describe what you want in text",
+    image: sectionAiText,
     paragraphs: [
       "Creating free images with AI becomes more flexible when you describe what you want in text. This lets the tool generate visuals based on your idea, making the process more focused on image creation rather than manual editing.",
       "Text-based image generation works well when you want to try different visual directions from the same idea. Small prompt changes can lead to different results, which makes the process useful for exploring variations.",
@@ -26,6 +33,7 @@ const sections = [
     icon: Lightbulb,
     title: "AI Image Generator for Different Ideas",
     subtitle: "Explore concepts as visuals",
+    image: sectionIdeas,
     paragraphs: [
       "An AI image generator helps you create free images with AI from simple written ideas. You describe a scene, object, or concept, and the tool turns that input into a visual, giving you a direct starting point for creative work.",
       "This is useful when you want to explore new directions without building an image from scratch by hand. It offers a straightforward way to test concepts and see how different ideas look as images.",
@@ -36,6 +44,7 @@ const sections = [
     icon: ImagePlus,
     title: "Reference Images for Better Direction",
     subtitle: "Guide results with visual references",
+    image: sectionReference,
     paragraphs: [
       "Creating free images with AI can also involve using a reference image to guide the result. This adds visual direction to the generation process and can help shape the style, composition, or overall feel of the final image.",
       "A reference image works best as supporting input rather than the main focus of the page. It gives the AI a clearer starting point while keeping image generation centered on the idea you want to create.",
@@ -46,6 +55,7 @@ const sections = [
     icon: PenTool,
     title: "Writing Better AI Image Prompts",
     subtitle: "Refine prompts for better results",
+    image: sectionPrompts,
     paragraphs: [
       "When you create free images with AI, the wording of your prompt can affect the final result. A clearer prompt gives the tool more direction, which can make the output closer to the image idea you have in mind.",
       "You can adjust your wording to explore different versions of the same concept. This gives you a simple way to refine image generation while keeping the creative process focused on your original idea.",
@@ -88,13 +98,16 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
             >
               {/* Icon illustration area */}
               <div className="w-full lg:w-[45%] shrink-0">
-                <div className="rounded-xl overflow-hidden bg-muted/30 border border-border/30 flex items-center justify-center py-12 md:py-16">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="h-20 w-20 rounded-2xl gradient-primary flex items-center justify-center shadow-lg">
-                      <section.icon className="h-10 w-10 text-primary-foreground" strokeWidth={1.5} />
-                    </div>
-                    <span className="text-sm font-medium text-body-desc">{section.subtitle}</span>
-                  </div>
+                <div className="rounded-xl overflow-hidden border border-border/30">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                    width="800"
+                    height="608"
+                    draggable={false}
+                  />
                 </div>
               </div>
 
