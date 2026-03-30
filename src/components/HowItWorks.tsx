@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { StepUploadAnimation } from "./StepUploadAnimation";
 import { StepStyleAnimation } from "./StepStyleAnimation";
 import { StepDownloadAnimation } from "./StepDownloadAnimation";
@@ -6,27 +6,25 @@ import { StepDownloadAnimation } from "./StepDownloadAnimation";
 const steps = [
   {
     step: "01",
-    title: "Enter Your Problem",
-    desc: "Type a math question or upload a screenshot of your problem. Supports algebra, geometry, calculus, statistics, and more.",
+    title: "Describe Your Idea",
+    desc: "Type a text prompt describing the image you want to create. You can also upload a reference image for additional guidance.",
     color: "from-primary to-theme1",
   },
   {
     step: "02",
-    title: "AI Solves · Explains",
-    desc: "Rita AI analyzes your problem and returns a clear, step-by-step solution with explanations you can follow.",
+    title: "AI Generates Image",
+    desc: "Rita AI processes your prompt and creates a new visual based on your description. Adjust wording to explore different results.",
     color: "from-theme1 to-emerald-400",
   },
   {
     step: "03",
-    title: "Learn & Practice",
-    desc: "Review each step to deepen understanding. Generate practice problems to reinforce what you've learned.",
+    title: "Download & Use",
+    desc: "Download your AI-generated image in high quality. Use it for content, social media, or creative projects.",
     color: "from-theme2 to-primary",
   },
 ];
 
-// Duration each animation plays before moving to next
 const DURATIONS = [6500, 10000, 8600];
-
 const COMPONENTS = [StepUploadAnimation, StepStyleAnimation, StepDownloadAnimation];
 
 export function HowItWorks() {
@@ -43,8 +41,8 @@ export function HowItWorks() {
   return (
     <section className="py-8 md:py-12">
       <div className="max-w-[1500px] mx-auto px-4 md:px-8">
-        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">How to Solve Math Problems in 3 Steps</h2>
-        <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">No complex setup — type your question, get step-by-step solutions, and learn the method</p>
+        <h2 className="text-xl md:text-3xl font-bold text-title text-center mb-2 md:mb-3">How to Create Free Images with AI in 3 Steps</h2>
+        <p className="text-sm md:text-base text-body-desc text-center mb-6 md:mb-12">No design skills needed — describe your idea, adjust settings, and download your image</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
           {steps.map((s, i) => {
             const Component = COMPONENTS[i];
@@ -58,7 +56,6 @@ export function HowItWorks() {
                 }`}
               >
                 <div className="w-full aspect-[8/5] overflow-hidden bg-muted/30">
-                  {/* Re-mount component when it becomes active to restart animation */}
                   <Component key={isActive ? `active-${activeIndex}` : `idle-${i}`} active={isActive} />
                 </div>
                 <div className="p-4 md:p-6">
