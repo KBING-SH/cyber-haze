@@ -1,36 +1,25 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Loader2 } from "lucide-react";
-
-// Simulates AI analyzing and solving the math problem step by step
-const SOLUTION_STEPS = [
-  "2x² + 5x - 3 = 0",
-  "Using quadratic formula:",
-  "x = (-5 ± √(25+24)) / 4",
-  "x = (-5 ± 7) / 4",
-  "x₁ = 0.5,  x₂ = -3",
-];
+import { Check, Loader2, ImageIcon } from "lucide-react";
 
 type Step =
   | "idle"
-  | "showProblem"
-  | "analyzing"
-  | "step1"
-  | "step2"
-  | "step3"
-  | "step4"
+  | "showPrompt"
+  | "generating"
+  | "pixel1"
+  | "pixel2"
+  | "pixel3"
   | "complete"
   | "reset";
 
 const SCRIPT: { step: Step; duration: number }[] = [
   { step: "idle", duration: 600 },
-  { step: "showProblem", duration: 1200 },
-  { step: "analyzing", duration: 1500 },
-  { step: "step1", duration: 1200 },
-  { step: "step2", duration: 1200 },
-  { step: "step3", duration: 1200 },
-  { step: "step4", duration: 1500 },
-  { step: "complete", duration: 1500 },
+  { step: "showPrompt", duration: 1200 },
+  { step: "generating", duration: 1800 },
+  { step: "pixel1", duration: 1000 },
+  { step: "pixel2", duration: 1000 },
+  { step: "pixel3", duration: 1200 },
+  { step: "complete", duration: 2000 },
   { step: "reset", duration: 500 },
 ];
 
@@ -46,61 +35,73 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
     return () => clearTimeout(timer);
   }, [stepIndex, active]);
 
-  const visibleSteps = (() => {
+  const isGenerating = currentStep === "generating";
+  const isComplete = currentStep === "complete";
+  const showImage = ["pixel1", "pixel2", "pixel3", "complete"].includes(currentStep);
+
+  const imageOpacity = (() => {
     switch (currentStep) {
-      case "idle": return 0;
-      case "showProblem": return 1;
-      case "analyzing": return 1;
-      case "step1": return 2;
-      case "step2": return 3;
-      case "step3": return 4;
-      case "step4": return 5;
-      case "complete": return 5;
-      case "reset": return 0;
+      case "pixel1": return 0.3;
+      case "pixel2": return 0.6;
+      case "pixel3": return 0.85;
+      case "complete": return 1;
       default: return 0;
     }
   })();
 
-  const isAnalyzing = currentStep === "analyzing";
-  const isComplete = currentStep === "complete";
-
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[3%]">
-      <p className="text-[0.55em] text-body-desc font-medium leading-none">AI Solution</p>
+      <p className="text-[0.55em] text-body-desc font-medium leading-none">AI Image Generation</p>
 
-      {/* Solution area */}
-      <div className="flex-1 min-h-0 rounded-[0.3em] border border-border/30 bg-muted/10 p-[4%] flex flex-col gap-[4%] overflow-hidden">
-        {SOLUTION_STEPS.map((line, i) => (
+      {/* Image generation area */}
+      <div className="flex-1 min-h-0 rounded-[0.3em] border border-border/30 bg-muted/10 overflow-hidden relative flex items-center justify-center">
+        {/* Placeholder */}
+        {!showImage && !isGenerating && (
           <motion.div
-            key={i}
-            className={`text-[0.42em] font-mono leading-relaxed ${
-              i === 0 ? "font-semibold text-title" : "text-body-desc"
-            }`}
-            initial={{ opacity: 0, x: -5 }}
-            animate={{
-              opacity: i < visibleSteps ? 1 : 0,
-              x: i < visibleSteps ? 0 : -5,
-            }}
-            transition={{ duration: 0.3, delay: 0.05 }}
+            className="flex flex-col items-center gap-[6px]"
+            animate={{ opacity: currentStep === "showPrompt" ? 0.6 : 0.3 }}
           >
-            {i === 0 ? (
-              <span className="text-primary">{line}</span>
-            ) : (
-              line
-            )}
+            <ImageIcon className="w-[10%] h-[10%] min-w-5 min-h-5 text-body-desc/30" />
+            <span className="text-[0.4em] text-body-desc/40">Image preview</span>
           </motion.div>
-        ))}
+        )}
 
-        {/* Loading indicator */}
-        {isAnalyzing && (
+        {/* Loading state */}
+        {isGenerating && (
           <motion.div
-            className="flex items-center gap-[4px]"
+            className="flex flex-col items-center gap-[8px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
           >
-            <Loader2 className="w-[0.5em] h-[0.5em] text-primary animate-spin" />
-            <span className="text-[0.4em] text-primary">Solving...</span>
+            <Loader2 className="w-[8%] h-[8%] min-w-5 min-h-5 text-primary animate-spin" />
+            <span className="text-[0.42em] text-primary">Generating image...</span>
+          </motion.div>
+        )}
+
+        {/* Generated image (gradient simulation) */}
+        {showImage && (
+          <motion.div
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: imageOpacity }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-full h-full bg-gradient-to-br from-amber-300/80 via-orange-400/60 to-purple-500/70 relative">
+              {/* Mountain silhouette */}
+              <div className="absolute bottom-0 left-0 right-0 h-[40%]">
+                <svg viewBox="0 0 200 80" className="w-full h-full" preserveAspectRatio="none">
+                  <path d="M0 80 L30 30 L60 55 L100 15 L140 45 L170 25 L200 50 L200 80 Z" fill="hsl(var(--title) / 0.3)" />
+                </svg>
+              </div>
+              {/* Sun */}
+              <motion.div
+                className="absolute top-[20%] right-[25%] w-[15%] aspect-square rounded-full bg-yellow-300/80"
+                animate={{ scale: [0.9, 1.1, 0.9] }}
+                transition={{ duration: 3, repeat: Infinity }}
+              />
+              {/* Lake reflection */}
+              <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-blue-400/30 to-transparent" />
+            </div>
           </motion.div>
         )}
       </div>
@@ -123,9 +124,9 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
             animate={{ scale: 1 }}
           >
             <Check className="w-[0.5em] h-[0.5em] text-white" />
-            <span className="text-[0.5em] font-semibold text-white">Solution Complete</span>
+            <span className="text-[0.5em] font-semibold text-white">Image Ready</span>
           </motion.div>
-        ) : isAnalyzing ? (
+        ) : isGenerating ? (
           <div className="flex items-center gap-[3px]">
             {[0, 1, 2].map((i) => (
               <motion.div
@@ -137,7 +138,7 @@ export function StepStyleAnimation({ active = true }: { active?: boolean }) {
             ))}
           </div>
         ) : (
-          <span className="text-[0.5em] font-semibold text-white">Get Answer</span>
+          <span className="text-[0.5em] font-semibold text-white">Generate Image</span>
         )}
       </motion.div>
     </div>

@@ -1,39 +1,32 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, Share2, Check, Copy, BookOpen } from "lucide-react";
+import { Download, Check, Share2 } from "lucide-react";
 
 type Step =
   | "idle"
   | "showResult"
-  | "moveToCopy"
-  | "clickCopy"
-  | "copied"
-  | "moveToPractice"
-  | "clickPractice"
-  | "showPractice"
+  | "moveToDownload"
+  | "clickDownload"
+  | "downloaded"
+  | "moveToShare"
+  | "clickShare"
+  | "shared"
   | "reset";
 
 const SCRIPT: { step: Step; duration: number }[] = [
   { step: "idle", duration: 500 },
   { step: "showResult", duration: 1200 },
-  { step: "moveToCopy", duration: 500 },
-  { step: "clickCopy", duration: 200 },
-  { step: "copied", duration: 1200 },
-  { step: "moveToPractice", duration: 500 },
-  { step: "clickPractice", duration: 200 },
-  { step: "showPractice", duration: 2500 },
+  { step: "moveToDownload", duration: 500 },
+  { step: "clickDownload", duration: 200 },
+  { step: "downloaded", duration: 1500 },
+  { step: "moveToShare", duration: 500 },
+  { step: "clickShare", duration: 200 },
+  { step: "shared", duration: 2500 },
   { step: "reset", duration: 600 },
 ];
 
-const COPY_POS: [number, number] = [30, 88];
-const PRACTICE_POS: [number, number] = [70, 88];
-
-const SOLUTION_LINES = [
-  { label: "Problem:", text: "2x² + 5x - 3 = 0" },
-  { label: "Step 1:", text: "a=2, b=5, c=-3" },
-  { label: "Step 2:", text: "Δ = 25 + 24 = 49" },
-  { label: "Answer:", text: "x₁ = 0.5, x₂ = -3" },
-];
+const DL_POS: [number, number] = [30, 88];
+const SHARE_POS: [number, number] = [70, 88];
 
 export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
   const [stepIndex, setStepIndex] = useState(0);
@@ -51,11 +44,11 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
       case "showResult":
         setCursorVisible(true);
         break;
-      case "moveToCopy":
-        setCursorPos(COPY_POS);
+      case "moveToDownload":
+        setCursorPos(DL_POS);
         break;
-      case "moveToPractice":
-        setCursorPos(PRACTICE_POS);
+      case "moveToShare":
+        setCursorPos(SHARE_POS);
         break;
       case "reset":
         setCursorVisible(false);
@@ -72,47 +65,52 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
   }, [stepIndex, currentStep, active]);
 
   const showResult = currentStep !== "idle" && currentStep !== "reset";
-  const showCopied = ["copied", "moveToPractice", "clickPractice", "showPractice"].includes(currentStep);
-  const showPractice = currentStep === "showPractice";
+  const showDownloaded = ["downloaded", "moveToShare", "clickShare", "shared"].includes(currentStep);
+  const showShared = currentStep === "shared";
 
   return (
     <div className="w-full h-full bg-card relative overflow-hidden flex flex-col p-[5%] gap-[3%]">
-      {/* Solution result */}
+      {/* Image result */}
       <div className="flex-1 min-h-0 flex flex-col gap-[3px]">
-        <span className="text-[0.45em] text-body-desc">Solution Review</span>
+        <span className="text-[0.45em] text-body-desc">Generated Image</span>
         <motion.div
-          className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative bg-muted/10 p-[4%] flex flex-col gap-[5%]"
+          className="flex-1 rounded-[0.3em] overflow-hidden border border-border/30 min-h-0 relative"
           animate={{ opacity: showResult ? 1 : 0.3 }}
           transition={{ duration: 0.4 }}
         >
           {showResult ? (
-            <>
-              {SOLUTION_LINES.map((line, i) => (
-                <div key={i} className="flex gap-[4px]">
-                  <span className="text-[0.38em] font-semibold text-primary whitespace-nowrap">{line.label}</span>
-                  <span className="text-[0.38em] font-mono text-title">{line.text}</span>
-                </div>
-              ))}
-            </>
+            <div className="w-full h-full bg-gradient-to-br from-amber-300/80 via-orange-400/60 to-purple-500/70 relative">
+              <div className="absolute bottom-0 left-0 right-0 h-[40%]">
+                <svg viewBox="0 0 200 80" className="w-full h-full" preserveAspectRatio="none">
+                  <path d="M0 80 L30 30 L60 55 L100 15 L140 45 L170 25 L200 50 L200 80 Z" fill="hsl(var(--title) / 0.3)" />
+                </svg>
+              </div>
+              <div className="absolute top-[20%] right-[25%] w-[15%] aspect-square rounded-full bg-yellow-300/80" />
+              <div className="absolute bottom-0 left-0 right-0 h-[15%] bg-gradient-to-t from-blue-400/30 to-transparent" />
+              
+              {/* Quality badge */}
+              <div className="absolute top-[6%] left-[6%] bg-card/80 rounded px-[4%] py-[2%]">
+                <span className="text-[0.35em] font-medium text-title">HD Quality</span>
+              </div>
+            </div>
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-[0.45em] text-body-desc">Waiting for solution...</span>
+            <div className="absolute inset-0 flex items-center justify-center bg-muted/10">
+              <span className="text-[0.45em] text-body-desc">Waiting for image...</span>
             </div>
           )}
 
-          {/* Practice overlay */}
+          {/* Share overlay */}
           <AnimatePresence>
-            {showPractice && (
+            {showShared && (
               <motion.div
-                className="absolute inset-0 bg-card/95 flex flex-col items-center justify-center gap-[6%] p-[6%]"
+                className="absolute inset-0 bg-card/90 flex flex-col items-center justify-center gap-[6%] p-[6%]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
               >
-                <BookOpen className="w-[8%] h-[8%] text-primary" />
-                <span className="text-[0.42em] font-semibold text-title">Practice Problem</span>
-                <span className="text-[0.38em] font-mono text-body-desc text-center">3x² - 7x + 2 = 0</span>
-                <span className="text-[0.32em] text-body-desc">Try solving this one!</span>
+                <Check className="w-[8%] h-[8%] text-primary" />
+                <span className="text-[0.42em] font-semibold text-title">Link Copied!</span>
+                <span className="text-[0.35em] text-body-desc text-center">Share your AI image anywhere</span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -121,41 +119,39 @@ export function StepDownloadAnimation({ active = true }: { active?: boolean }) {
 
       {/* Action buttons */}
       <div className="flex gap-[4%] shrink-0 relative">
-        {/* Copy button */}
+        {/* Download button */}
         <motion.div
           className="flex-1 h-[2em] rounded-lg border border-border/50 flex items-center justify-center gap-[4px] bg-card"
           animate={{
-            borderColor: currentStep === "clickCopy" ? "hsl(var(--primary))" : "hsl(var(--border) / 0.5)",
-            scale: currentStep === "clickCopy" ? 0.95 : 1,
+            borderColor: currentStep === "clickDownload" ? "hsl(var(--primary))" : "hsl(var(--border) / 0.5)",
+            scale: currentStep === "clickDownload" ? 0.95 : 1,
           }}
           transition={{ duration: 0.15 }}
         >
-          {showCopied ? (
+          {showDownloaded ? (
             <motion.div className="flex items-center gap-[3px]" initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
               <Check className="w-[0.6em] h-[0.6em] text-primary" />
-              <span className="text-[0.4em] text-primary font-medium">Copied</span>
+              <span className="text-[0.4em] text-primary font-medium">Saved</span>
             </motion.div>
           ) : (
             <>
-              <Copy className="w-[0.5em] h-[0.5em] text-body-desc" />
-              <span className="text-[0.4em] text-body-desc">Copy</span>
+              <Download className="w-[0.5em] h-[0.5em] text-body-desc" />
+              <span className="text-[0.4em] text-body-desc">Download</span>
             </>
           )}
         </motion.div>
 
-        {/* Practice button */}
+        {/* Share button */}
         <motion.div
           className="flex-1 h-[2em] rounded-lg border border-border/50 flex items-center justify-center gap-[4px] bg-card"
           animate={{
-            borderColor: currentStep === "clickPractice" ? "hsl(var(--primary))" : "hsl(var(--border) / 0.5)",
-            scale: currentStep === "clickPractice" ? 0.95 : 1,
+            borderColor: currentStep === "clickShare" ? "hsl(var(--primary))" : "hsl(var(--border) / 0.5)",
+            scale: currentStep === "clickShare" ? 0.95 : 1,
           }}
           transition={{ duration: 0.15 }}
         >
-          <>
-            <BookOpen className="w-[0.5em] h-[0.5em] text-body-desc" />
-            <span className="text-[0.4em] text-body-desc">Practice</span>
-          </>
+          <Share2 className="w-[0.5em] h-[0.5em] text-body-desc" />
+          <span className="text-[0.4em] text-body-desc">Share</span>
         </motion.div>
       </div>
 
