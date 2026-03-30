@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { ImageIcon, Type, Lightbulb, ImagePlus, PenTool, ChevronRight } from "lucide-react";
+import sectionTextToImage from "@/assets/section-text-to-image.webp";
+import sectionAiText from "@/assets/section-ai-text.webp";
+import sectionIdeas from "@/assets/section-ideas.webp";
+import sectionReference from "@/assets/section-reference.webp";
+import sectionPrompts from "@/assets/section-prompts.webp";
 
 const sections = [
   {
     icon: ImageIcon,
     title: "Create Free Images with AI Online",
     subtitle: "Turn text ideas into visuals online",
+    image: sectionTextToImage,
     paragraphs: [
       "To create free images with AI, you can start with a text idea and turn it into a new visual online. This gives you a simple way to explore image creation for different concepts, moods, and styles without relying on complex design tools.",
       "By entering a clear description, you can guide the image result in a more direct way. It offers a practical way to turn words into visuals and explore new image ideas as you refine your prompt.",
@@ -16,6 +22,7 @@ const sections = [
     icon: Type,
     title: "AI Image Creation from Text",
     subtitle: "Describe what you want in text",
+    image: sectionAiText,
     paragraphs: [
       "Creating free images with AI becomes more flexible when you describe what you want in text. This lets the tool generate visuals based on your idea, making the process more focused on image creation rather than manual editing.",
       "Text-based image generation works well when you want to try different visual directions from the same idea. Small prompt changes can lead to different results, which makes the process useful for exploring variations.",
@@ -26,6 +33,7 @@ const sections = [
     icon: Lightbulb,
     title: "AI Image Generator for Different Ideas",
     subtitle: "Explore concepts as visuals",
+    image: sectionIdeas,
     paragraphs: [
       "An AI image generator helps you create free images with AI from simple written ideas. You describe a scene, object, or concept, and the tool turns that input into a visual, giving you a direct starting point for creative work.",
       "This is useful when you want to explore new directions without building an image from scratch by hand. It offers a straightforward way to test concepts and see how different ideas look as images.",
@@ -36,6 +44,7 @@ const sections = [
     icon: ImagePlus,
     title: "Reference Images for Better Direction",
     subtitle: "Guide results with visual references",
+    image: sectionReference,
     paragraphs: [
       "Creating free images with AI can also involve using a reference image to guide the result. This adds visual direction to the generation process and can help shape the style, composition, or overall feel of the final image.",
       "A reference image works best as supporting input rather than the main focus of the page. It gives the AI a clearer starting point while keeping image generation centered on the idea you want to create.",
@@ -46,6 +55,7 @@ const sections = [
     icon: PenTool,
     title: "Writing Better AI Image Prompts",
     subtitle: "Refine prompts for better results",
+    image: sectionPrompts,
     paragraphs: [
       "When you create free images with AI, the wording of your prompt can affect the final result. A clearer prompt gives the tool more direction, which can make the output closer to the image idea you have in mind.",
       "You can adjust your wording to explore different versions of the same concept. This gives you a simple way to refine image generation while keeping the creative process focused on your original idea.",
