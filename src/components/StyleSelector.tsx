@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { Calculator, BookOpen, TrendingUp, Sigma, PieChart } from "lucide-react";
+import { ImageIcon, Palette, Wand2, Layers, Sparkles } from "lucide-react";
 
 const TOPICS = [
-  { icon: Calculator, label: "Algebra", color: "text-primary" },
-  { icon: BookOpen, label: "Geometry", color: "text-theme1" },
-  { icon: TrendingUp, label: "Calculus", color: "text-primary" },
-  { icon: Sigma, label: "Statistics", color: "text-theme1" },
-  { icon: PieChart, label: "Probability", color: "text-primary" },
+  { icon: ImageIcon, label: "Realistic", color: "text-primary" },
+  { icon: Palette, label: "Artistic", color: "text-theme1" },
+  { icon: Wand2, label: "Fantasy", color: "text-primary" },
+  { icon: Layers, label: "3D Render", color: "text-theme1" },
+  { icon: Sparkles, label: "Anime", color: "text-primary" },
 ];
 
-const SAMPLE_EQUATIONS = [
-  "2x² + 5x - 3 = 0",
-  "∫ sin(x) dx = ?",
-  "d/dx [x³ + 2x]",
-  "P(A∪B) = ?",
-  "lim x→0 sin(x)/x",
+const SAMPLE_PROMPTS = [
+  "A sunset over mountains 🌄",
+  "Cyberpunk city at night 🌃",
+  "Watercolor flower garden 🌸",
+  "Cute cat in space suit 🐱",
+  "Fantasy castle in clouds ☁️",
 ];
 
 export function StyleSelector() {
@@ -30,21 +30,21 @@ export function StyleSelector() {
   return (
     <div className="rounded-2xl xl:rounded-[32px] border border-border/50 bg-card shadow-soft overflow-hidden h-full flex flex-col items-center justify-center p-6 md:p-10">
       <div className="text-center space-y-6 max-w-md">
-        {/* Animated equation */}
+        {/* Animated prompt */}
         <div className="relative h-16 flex items-center justify-center">
-          {SAMPLE_EQUATIONS.map((eq, i) => (
+          {SAMPLE_PROMPTS.map((prompt, i) => (
             <span
-              key={eq}
-              className={`absolute text-2xl md:text-3xl font-mono font-bold text-title transition-all duration-500 ${
+              key={prompt}
+              className={`absolute text-2xl md:text-3xl font-bold text-title transition-all duration-500 ${
                 activeIdx === i ? "opacity-100 scale-100" : "opacity-0 scale-95"
               }`}
             >
-              {eq}
+              {prompt}
             </span>
           ))}
         </div>
 
-        {/* Topic chips */}
+        {/* Style chips */}
         <div className="flex flex-wrap items-center justify-center gap-2">
           {TOPICS.map((t, i) => {
             const Icon = t.icon;
@@ -65,7 +65,7 @@ export function StyleSelector() {
         </div>
 
         <p className="text-sm text-body-desc">
-          Type a question or upload an image to get started
+          Describe your idea or upload a reference image to get started
         </p>
       </div>
     </div>
