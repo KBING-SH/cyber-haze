@@ -98,13 +98,16 @@ export function ContentSections({ onSelectStyle }: { onSelectStyle?: (styleIndex
             >
               {/* Icon illustration area */}
               <div className="w-full lg:w-[45%] shrink-0">
-                <div className="rounded-xl overflow-hidden bg-muted/30 border border-border/30 flex items-center justify-center py-12 md:py-16">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="h-20 w-20 rounded-2xl gradient-primary flex items-center justify-center shadow-lg">
-                      <section.icon className="h-10 w-10 text-primary-foreground" strokeWidth={1.5} />
-                    </div>
-                    <span className="text-sm font-medium text-body-desc">{section.subtitle}</span>
-                  </div>
+                <div className="rounded-xl overflow-hidden border border-border/30">
+                  <img
+                    src={section.image}
+                    alt={section.title}
+                    className="w-full aspect-[4/3] object-cover"
+                    loading="lazy"
+                    width="800"
+                    height="608"
+                    draggable={false}
+                  />
                 </div>
               </div>
 
